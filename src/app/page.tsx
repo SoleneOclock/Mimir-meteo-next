@@ -1,7 +1,13 @@
+import MeteoCard from "@/components/meteoCard";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      weteo widget to be
+    <main className="h-screen p-6">
+      <h1 className="text-xl text-center text-pink-500">Widget Meteo</h1>
+
+      
+      <MeteoCard city="Paris"/>
+      <MeteoCard city="Montpellier"/>
     </main>
   );
 }
