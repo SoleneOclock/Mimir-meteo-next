@@ -18,6 +18,7 @@ async function Card({ city }: { city: string }) {
   const temp = data.main.temp;
   return (
     <div className="border m-6 rounded-xl p-6 bg-sky-200 bg-opacity-60">
+      {process.env.MESSAGE}
       <LikeBtn />
       <div className="font-bold">{city}</div>
       <div>{temp}°C</div>

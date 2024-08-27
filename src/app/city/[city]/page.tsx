@@ -9,9 +9,14 @@ async function CityPage({ params }: { params: { city: string } }) {
   // on cherche dans la variable globale process.env
   const API_KEY = process.env.API_KEY;
 
+  // on recupere l'url de l'API depuis le fichier qui correspond à notre env
+  // si on est dev il va chercher dans .env.developement
+  // si on est en prod il va chercher dans .env.production
+  const API_URL = process.env.API_URL;
+
   // on peut fetch les infos direct coté server avant d'envoyer la page
   const result = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,
+    `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`,
   );
   const data = (await result.json()) as Weather;
 
