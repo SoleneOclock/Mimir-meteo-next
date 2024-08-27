@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Menu from "@/components/Menu";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +14,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {
-      // les elements du composant dans page.tsx seront rendus à la place de children
-      }
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Menu />
+        <main className="h-screen p-6">
+          <h1 className="text-3xl text-center text-white">Widget Meteo</h1>
+          <div>
+            {
+              // les elements retournées par le composant de page.tsx sont dans children
+              children
+            }
+          </div>
+        </main>
+      </body>
     </html>
   );
 }

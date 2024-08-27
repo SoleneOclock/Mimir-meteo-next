@@ -1,13 +1,11 @@
-import MeteoCard from "@/components/meteoCard";
+import MeteoCard from "@/components/MeteoCard";
 
 export default function Home() {
+  console.log("execution home");
   return (
-    <main className="h-screen p-6">
-      <h1 className="text-xl text-center text-pink-500">Widget Meteo</h1>
-
-      
-      <MeteoCard city="Paris"/>
-      <MeteoCard city="Montpellier"/>
-    </main>
+    <div>
+      <MeteoCard city="Paris" />
+      <MeteoCard city="Montpellier" />
+    </div>
   );
 }

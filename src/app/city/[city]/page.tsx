@@ -1,0 +1,26 @@
+import type { Weather } from "@/@types/weather";
+
+async function CityPage({ params }: { params: { city: string } }) {
+  // on veut recup la valeur du param dynamique de l'URL pour savoir quelle est le nom de la ville
+  console.log(params);
+  const { city } = params;
+
+  // on peut fetch les infos direct coté server avant d'envoyer la page
+  const result = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=47840f4f526d9cc69b4b575c52495860&units=metric`,
+  );
+  const data = (await result.json()) as Weather;
+
+  return (
+    <div>
+      <h2>{city}</h2>
+      {data.weather[0].description}
+      <img
+        src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+        alt={data.weather[0].description}
+      />
+    </div>
+  );
+}
+
+export default CityPage;
