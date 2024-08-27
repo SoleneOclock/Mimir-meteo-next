@@ -16,6 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {
+      // les elements du composant dans page.tsx seront rendus à la place de children
+      }
       <body className={inter.className}>{children}</body>
     </html>
   );
