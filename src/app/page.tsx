@@ -1,4 +1,4 @@
-import MeteoCard from "../components/MeteoCard";
+import MeteoCard from "./../components/MeteoCard";
 
 export default function Home() {
   console.log("execution home");
