@@ -5,9 +5,13 @@ async function CityPage({ params }: { params: { city: string } }) {
   console.log(params);
   const { city } = params;
 
+  // on recupère la clé depuis le fichier de variables d'environnemets
+  // on cherche dans la variable globale process.env
+  const API_KEY = process.env.API_KEY;
+
   // on peut fetch les infos direct coté server avant d'envoyer la page
   const result = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=47840f4f526d9cc69b4b575c52495860&units=metric`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,
   );
   const data = (await result.json()) as Weather;
 
